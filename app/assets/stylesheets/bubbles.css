@@ -380,6 +380,12 @@
   }
 }
 
+.bubble__svg--popped {
+  .bubble:has(.bubble__link) & {
+    z-index: -1;
+  }
+}
+
 .bubble__title {
   -webkit-line-clamp: var(--lines, 5);
   -webkit-box-orient: vertical;
