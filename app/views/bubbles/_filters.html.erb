@@ -11,6 +11,8 @@
   <% unless querying_unassigned_status? %>
     and <%= render "bubbles/filters/assignees", bucket: bucket, assignee_filters: assignee_filters %>
   <% end %>
-
-  <%= render "bubbles/filters/bucket_view_form", bucket: bucket %>
 </h2>
+
+<% unless default_bucket_view? %>
+  <%= render "bubbles/filters/bucket_view_form", bucket: bucket, bucket_view: bucket_view %>
+<% end %>

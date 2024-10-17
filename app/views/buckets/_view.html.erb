@@ -1,4 +1,4 @@
-<% path = bucket_bubbles_path(view.bucket, **view.filters) %>
+<% path = bucket_bubbles_path(view.bucket, **view.filters, view_id: view.id) %>
 
 <li class="bucket flex flex-column txt-align-center max-width position-relative">
   <%= link_to path, class: "windshield__container flex justify-center align-center position-relative" do %>

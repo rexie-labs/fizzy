@@ -21,7 +21,7 @@ module FiltersHelper
 
   # `#bubble_filter_params` is memoized to avoid spam in logs about unpermitted params
   def bubble_filter_params
-    @bubble_filter_params ||= params.permit :order_by, :status, :term, :assignee_ids, :tag_ids
+    @bubble_filter_params ||= params.permit :order_by, :status, :term, :view_id, assignee_ids: [], tag_ids: []
   end
 
   def querying_unassigned_status?
