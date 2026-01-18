@@ -1,4 +1,4 @@
-class Subscription < Queenbee::Subscription
+class Subscription
   SHORT_NAMES = %w[ FreeV1 ]
 
   def self.short_name
@@ -6,8 +6,16 @@ class Subscription < Queenbee::Subscription
   end
 
   class FreeV1 < Subscription
-    property :proper_name,  "Free Subscription"
-    property :price,        0
-    property :frequency,    "yearly"
+    def self.proper_name
+      "Free Subscription"
+    end
+
+    def self.price
+      0
+    end
+
+    def self.frequency
+      "yearly"
+    end
   end
 end

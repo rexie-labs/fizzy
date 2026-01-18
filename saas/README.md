@@ -42,9 +42,8 @@ This will ask for your 1password authorization to read and set the environment v
 
 ### Stripe environments
 
-* [Development](https://dashboard.stripe.com/acct_1SdTFtRus34tgjsJ/test/dashboard)
-* [Staging](https://dashboard.stripe.com/acct_1SdTbuRvb8txnPBR/test/dashboard)
-* [Production](https://dashboard.stripe.com/acct_1SNy97RwChFE4it8/dashboard)
+* [Development](https://dashboard.stripe.com/acct_1Sr28iJEvhy6PJoI/test/dashboard)
+* [Production](https://dashboard.stripe.com/acct_1Sr28LJ4z7IP8LZT/dashboard)
 
 ## Environments
 

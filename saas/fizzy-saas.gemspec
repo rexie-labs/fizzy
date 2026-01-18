@@ -25,8 +25,6 @@ Gem::Specification.new do |spec|
   spec.executables = [ "stripe-dev" ]
 
   spec.add_dependency "rails", ">= 8.1.0.beta1"
-  spec.add_dependency "queenbee"
-  spec.add_dependency "rails_structured_logging"
   spec.add_dependency "sentry-ruby"
   spec.add_dependency "sentry-rails"
   spec.add_dependency "yabeda"
@@ -38,6 +36,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "yabeda-puma-plugin"
   spec.add_dependency "yabeda-rails", ">= 0.10"
   spec.add_dependency "prometheus-client-mmap", "~> 1.4.0"
-  spec.add_dependency "console1984"
-  spec.add_dependency "audits1984"
 end
