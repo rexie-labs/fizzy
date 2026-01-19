@@ -6,9 +6,6 @@ require_relative "../../rails_ext/active_record_tasks_database_tasks.rb"
 module Fizzy
   module Saas
     class Engine < ::Rails::Engine
-      # moved from config/initializers/queenbee.rb
-      Queenbee.host_app = Fizzy
-
       initializer "fizzy_saas.content_security_policy", before: :load_config_initializers do |app|
         app.config.x.content_security_policy.form_action = "https://checkout.stripe.com https://billing.stripe.com"
       end
@@ -42,9 +39,9 @@ module Fizzy
         end
       end
 
-      initializer "fizzy_saas.transaction_pinning" do |app|
-        app.config.middleware.insert_after(ActiveRecord::Middleware::DatabaseSelector, TransactionPinning::Middleware)
-      end
+      # initializer "fizzy_saas.transaction_pinning" do |app|
+      #   app.config.middleware.insert_after(ActiveRecord::Middleware::DatabaseSelector, TransactionPinning::Middleware)
+      # end
 
       initializer "fizzy_saas.solid_queue" do
         SolidQueue.on_start do
@@ -58,10 +55,6 @@ module Fizzy
           before_action do
             if Current.identity.present?
               logger.struct(authentication: { identity: { id: Current.identity.id } })
-            end
-
-            if Current.account.present?
-              logger.struct(account: { queenbee_id: Current.account.external_account_id })
             end
           end
         end
@@ -115,34 +108,12 @@ module Fizzy
         require_relative "metrics"
       end
 
-      config.before_initialize do
-        config.console1984.protected_environments = %i[ production beta staging ]
-        config.console1984.ask_for_username_if_empty = true
-        config.console1984.base_record_class = "::SaasRecord"
-
-        config.audits1984.base_controller_class = "::SaasAdminController"
-        config.audits1984.auditor_class = "::Identity"
-        config.audits1984.auditor_name_attribute = :email_address
-
-        if config.console1984.protected_environments.include?(Rails.env.to_sym)
-          config.active_record.encryption.primary_key = ENV.fetch("ACTIVE_RECORD_ENCRYPTION_PRIMARY_KEY")
-          config.active_record.encryption.deterministic_key = ENV.fetch("ACTIVE_RECORD_ENCRYPTION_DETERMINISTIC_KEY")
-          config.active_record.encryption.key_derivation_salt = ENV.fetch("ACTIVE_RECORD_ENCRYPTION_KEY_DERIVATION_SALT")
-        end
-      end
-
       config.to_prepare do
         ::Account.include Account::Billing, Account::Limited
-        ::Signup.prepend Fizzy::Saas::Signup
         CardsController.include(Card::LimitedCreation)
         Cards::PublishesController.include(Card::LimitedPublishing)
 
-        Queenbee::Subscription.short_names = Subscription::SHORT_NAMES
-
-        # Default to local dev QB token if not set
-        Queenbee::ApiToken.token = ENV.fetch("QUEENBEE_API_TOKEN") { "69a4cfb8705913e6323f7b4c0c0cff9bd8df37da532f4375b85e9655b8100bb023591b48d308205092aa0a04dd28cb6c62d6798364a6f44cc1e675814eb148a1" } # gitleaks:allow development-only token
-
-        Subscription::SHORT_NAMES.each do |short_name|
+       Subscription::SHORT_NAMES.each do |short_name|
           const_name = "#{short_name}Subscription"
           ::Object.send(:remove_const, const_name) if ::Object.const_defined?(const_name)
           ::Object.const_set const_name, Subscription.const_get(short_name, false)

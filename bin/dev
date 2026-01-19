@@ -45,4 +45,5 @@ else
   echo "Login with david@example.com to: http://fizzy.localhost:$PORT/"
 fi
 
+eval "$(BUNDLE_GEMFILE=Gemfile.saas bundle exec stripe-dev)"
 ./bin/rails server -b 0.0.0.0 -p $PORT

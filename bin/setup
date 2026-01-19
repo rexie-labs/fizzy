@@ -135,13 +135,13 @@ fi
 bundle config set --local auto_install true
 step "Installing RubyGems" bundle install
 
-if [ -n "$SAAS" ]; then
-  source "$app_root/saas/bin/setup"
-else
-  if [ "$DATABASE_ADAPTER" = "mysql" ]; then
-    oss_mysql_setup
-  fi
-fi
+#if [ -n "$SAAS" ]; then
+#  source "$app_root/saas/bin/setup"
+#else
+#  if [ "$DATABASE_ADAPTER" = "mysql" ]; then
+#    oss_mysql_setup
+#  fi
+#fi
 
 if [[ $* == *--reset* ]]; then
   step "Resetting the database" rails db:reset
