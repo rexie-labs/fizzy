@@ -126,14 +126,6 @@ GEM
   specs:
     action_text-trix (2.1.16)
       railties
-    activemodel-serializers-xml (1.0.3)
-      activemodel (>= 5.0.0.a)
-      activesupport (>= 5.0.0.a)
-      builder (~> 3.1)
-    activeresource (6.2.0)
-      activemodel (>= 7.0)
-      activemodel-serializers-xml (~> 1.0)
-      activesupport (>= 7.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.3)
@@ -510,7 +502,6 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  activeresource
   autotuner
   aws-sdk-s3
   bcrypt (~> 3.1.7)
