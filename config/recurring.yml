@@ -31,13 +31,6 @@ production: &production
     class: "Account::IncinerateDueJob"
     schedule: every 8 hours at minute 16
 
-<% if Fizzy.saas? %>
-  # Metrics
-  yabeda_actioncable:
-    command: "Yabeda::ActionCable.measure"
-    schedule: every 60 seconds
-<% end %>
-
 beta:
   # Only Solid Queue maintenance
   clear_solid_queue_finished_jobs:

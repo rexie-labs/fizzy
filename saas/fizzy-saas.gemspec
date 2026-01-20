@@ -27,13 +27,4 @@ Gem::Specification.new do |spec|
   spec.add_dependency "rails", ">= 8.1.0.beta1"
   spec.add_dependency "sentry-ruby"
   spec.add_dependency "sentry-rails"
-  spec.add_dependency "yabeda"
-  spec.add_dependency "yabeda-actioncable"
-  spec.add_dependency "yabeda-activejob"
-  spec.add_dependency "yabeda-gc"
-  spec.add_dependency "yabeda-http_requests"
-  spec.add_dependency "yabeda-prometheus-mmap"
-  spec.add_dependency "yabeda-puma-plugin"
-  spec.add_dependency "yabeda-rails", ">= 0.10"
-  spec.add_dependency "prometheus-client-mmap", "~> 1.4.0"
 end

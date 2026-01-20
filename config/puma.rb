@@ -18,8 +18,6 @@ end
 if Fizzy.saas?
   control_uri = Rails.env.local? ? "unix://tmp/pumactl.sock" : "auto"
   activate_control_app control_uri, no_token: true
-  plugin :yabeda
-  plugin :yabeda_prometheus
 end
 
 if !Rails.env.local?

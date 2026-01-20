@@ -8,13 +8,3 @@ gem "fizzy-saas", path: "saas"
 # Telemetry
 gem "sentry-ruby"
 gem "sentry-rails"
-gem "yabeda"
-gem "yabeda-actioncable"
-gem "yabeda-activejob", github: "basecamp/yabeda-activejob", branch: "bulk-and-scheduled-jobs"
-gem "yabeda-gc"
-gem "yabeda-http_requests"
-gem "yabeda-prometheus-mmap"
-gem "yabeda-puma-plugin"
-gem "yabeda-rails"
-gem "webrick" # required for yabeda-prometheus metrics server
-gem "prometheus-client-mmap", "~> 1.3"
