@@ -13,7 +13,7 @@ ssh:
 
 proxy:
   ssl: true
-  host: https://fizzy.rexielabs.com
+  host: fizzy.rexielabs.com
 
 volumes:
   - "fizzy_storage:/rails/storage"
