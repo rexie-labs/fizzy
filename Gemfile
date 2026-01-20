@@ -43,6 +43,13 @@ gem "autotuner"
 gem "mission_control-jobs"
 gem "benchmark" # indirect dependency, being removed from Ruby 3.5 stdlib so here to quash warnings
 
+# Saas
+gem "stripe", "~> 18.0"
+
+# Telemetry
+gem "sentry-ruby"
+gem "sentry-rails"
+
 group :development, :test do
   gem "brakeman", require: false
   gem "bundler-audit", require: false
