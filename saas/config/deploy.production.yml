@@ -8,6 +8,7 @@ servers:
 env:
   clear:
     RAILS_ENV: production
+    SAAS: true
     RAILS_LOG_LEVEL: fatal # suppress unstructured log lines
     BASE_URL: https://fizzy.rexielabs.com
     MAILER_FROM_ADDRESS: fizzy@rexielabs.com
